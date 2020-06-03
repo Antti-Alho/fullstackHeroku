@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 
+app.use(express.static('build'))
 app.use(cors())
 app.use(express.json())
 
@@ -31,8 +32,6 @@ let persons = [
     "id": 4
   }
 ]
-
-app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/info', (req, res) => {
   let string = `
